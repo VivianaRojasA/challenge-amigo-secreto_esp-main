@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+._*
+
+# Node.js
+node_modules/
+
+# Configuración
+.env
