@@ -1,6 +1,4 @@
 let nombresAmigos = [];
-let cantidadAmigos = 0;
-let contador = 0;
 
 function limpiarCaja() {
     document.querySelector('#amigo').value = '';
@@ -16,12 +14,28 @@ function agregarAmigo() {
     }
     else {
         nombresAmigos.push(nameAmigo);
+        listaFriends();
     }
     limpiarCaja();
     return;
 }
 
-NnombresAmigos = nombresAmigos.length;
-console.log(contador);
-console.log(cantidadAmigos);
-console.log(nombresAmigos);
+//Imprime en pantalla los nombres de los amigos
+function listaFriends() {
+    let lista = document.querySelector('#listaAmigos');
+
+    //reininia ul del html
+    document.querySelector('#listaAmigos').innerHTML="";
+
+    contador = 0;
+        while (contador < nombresAmigos.length){
+            let elementoLista = document.createElement('li');
+            elementoLista.textContent = nombresAmigos[contador];
+            lista.appendChild(elementoLista);
+            contador++;
+        }
+        return;
+    }
+
+
+
