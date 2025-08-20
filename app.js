@@ -3,13 +3,13 @@ let nameElegido = [];
 
 function limpiarCaja() {
     document.querySelector('#amigo').value = '';
+    return;
 }
-
 //funcion vinculada al botón Añadir
 function agregarAmigo() {
     let nameAmigo = document.getElementById('amigo').value;
     if (nombresAmigos.includes(nameAmigo)) {
-        alert("Nombre repetido, Ingresa un nombre distinto");
+        alert("Nombre repetido\nIngresa un nombre distinto");
     } else if (nameAmigo == "" ){
         alert("Ingresa un nombre válido");
     }
@@ -26,32 +26,25 @@ function printUl(idUl,indice){
     let elementoLista = document.createElement('li');
     elementoLista.textContent = nombresAmigos[indice];
     elementoUl.appendChild(elementoLista);
+    return;
 }
 
 function limpiarUl(idUl){
-   //let lista = document.querySelector(idUl);
-    //reininia ul del html
     document.querySelector(idUl).innerHTML="";
+    return;
 }
 
 //Imprime en pantalla los nombres de los amigos
 function listaFriends() {
     limpiarUl('#listaAmigos');
-   /* let lista = document.querySelector('#listaAmigos');
-
-    //reininia ul del html
-    document.querySelector('#listaAmigos').innerHTML="";*/
-
     contador = 0;
         while (contador < nombresAmigos.length){
-            /*let elementoLista = document.createElement('li');
-            elementoLista.textContent = nombresAmigos[contador];*/
             printUl('#listaAmigos',contador);
             contador++;
         }
-        return;
+    return;
     }
-
+//funcion vinculada al botón sortear
 function sortearAmigo(){
     limpiarUl('#resultado')
     let indiceSorteado = Math.floor(Math.random()*nombresAmigos.length);
@@ -59,9 +52,8 @@ function sortearAmigo(){
     console.log(nombresAmigos.length);
     
     if (nombresAmigos.length == nameElegido.length){
-        alert('No hay más amigos para sortear');
+        alert('No hay más amigos para sortear\nRecarga la página para reiniciar el sorteo');
         limpiarUl('#listaAmigos');
-        //incluir deshablitar boton sortear,
     } else{
         if (nameElegido.includes(nombresAmigos[indiceSorteado])){
             return sortearAmigo();
@@ -71,8 +63,7 @@ function sortearAmigo(){
         printUl('#resultado',indiceSorteado)
     }
     console.log(nameElegido.length);
-    /*let resultHTML = document.querySelector('#resultado');
-    resultHTML.innerHTML =  nombresAmigos[indiceSorteado];*/
+    return;
 }
 
 
